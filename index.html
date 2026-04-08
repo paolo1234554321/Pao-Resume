@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paolo Gutlay - Interactive Resume</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="profile-frame">
+            <img src="assets/profile.jpg" alt="Paolo Gutlay" class="profile-pic">
+        </div>
+        <h1>PAOLO GUTLAY</h1>
+        <p class="instruction">Click the sections below to expand details.</p>
+    </header>
+
+    <section onclick="toggleSection(this)">
+        <h2>PROFILE</h2>
+        <div class="content">
+            <p>Highly motivated Bachelor of Science in Information Technology graduate with a foundation in Networking and Configuration. Developed a keen interest in National Agencies through Department of Information and Communications Technology Internship program. Adaptable to task and eager to learn.</p>
+        </div>
+    </section>
+
+    <section onclick="toggleSection(this)">
+        <h2>SKILLS & LANGUAGES</h2>
+        <div class="content">
+            <div class="grid-2">
+                <div>
+                    <h3>Skills</h3>
+                    <ul class="skill-list">
+                        <li>Basic Networking</li>
+                        <li>Basic Encoding</li>
+                        <li>Basic Designing</li>
+                        <li>Teamwork & Time Management</li>
+                        <li>Effective Communication</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Languages</h3>
+                    <ul class="skill-list">
+                        <li>English</li>
+                        <li>Tagalog</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section onclick="toggleSection(this)">
+        <h2>EDUCATION BACKGROUND</h2>
+        <div class="content">
+            <div class="item">
+                <div class="item-title">
+                    <span>BS in Information Technology</span>
+                    <span class="date">2022 — 2026</span>
+                </div>
+                <div class="sub-text">Sorsogon State University - Bulan Campus</div>
+            </div>
+            <div class="item">
+                <div class="item-title">
+                    <span>ABM (Accountancy Business Management)</span>
+                    <span class="date">2020 — 2022</span>
+                </div>
+                <div class="sub-text">Bulan National High School</div>
+            </div>
+        </div>
+    </section>
+
+    <section onclick="toggleSection(this)">
+        <h2>CERTIFICATES</h2>
+        <div class="content">
+            <div class="cert-grid">
+                <div class="cert-item" onclick="event.stopPropagation(); openModal('assets/Digital_1.png')">
+                    <div class="img-placeholder">
+                        <img src="assets/Digital_1.png" alt="Digital 1" class="cert-img">
+                    </div>
+                    <p><strong>Digital Literacy</strong></p>
+                </div>
+                <div class="cert-item" onclick="event.stopPropagation(); openModal('assets/Python_2.png')">
+                    <div class="img-placeholder">
+                        <img src="assets/Python_2.png" alt="Python 2" class="cert-img">
+                    </div>
+                    <p><strong>Python Essentials</strong></p>
+                </div>
+                <div class="cert-item" onclick="event.stopPropagation(); openModal('assets/Networking_Basics.png')">
+                    <div class="img-placeholder">
+                        <img src="assets/Networking_Basics.png" alt="Networking" class="cert-img">
+                    </div>
+                    <p><strong>Networking Basics</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section onclick="toggleSection(this)">
+        <h2>CONTACT INFO</h2>
+        <div class="content">
+            <div class="grid-2">
+                <div>
+                    <h3>Direct Contact</h3>
+                    <ul class="contact-list">
+                        <li><strong>Phone:</strong> +63 970 634 0966</li>
+                        <li><strong>Email:</strong> paologutlay@gmail.com</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Current Address</h3>
+                    <ul class="contact-list">
+                        <li><strong>Location:</strong> Purok 6, Marinab, Bulan, Sorsogon</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div id="imageModal" class="modal" onclick="closeModal()">
+    <span class="close-btn">&times;</span>
+    <img class="modal-content" id="bigImg">
+</div>
+
+<script>
+    function toggleSection(element) {
+        element.classList.toggle('active');
+    }
+
+    function openModal(imgSrc) {
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("bigImg");
+        modal.style.display = "flex";
+        modalImg.src = imgSrc;
+    }
+
+    function closeModal() {
+        document.getElementById("imageModal").style.display = "none";
+    }
+</script>
+
+</body>
+</html>

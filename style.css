@@ -1,0 +1,257 @@
+/* Color Palette & Variables */
+:root {
+    --bg-page: #e5e7eb;
+    --container-bg: #ffffff;
+    --accent-gray: #374151;
+    --hover-gray: #f9fafb;
+    --text-black: #000000;
+    --border-light: #d1d5db;
+}
+
+/* Global Styles */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--bg-page);
+    color: var(--text-black);
+    margin: 0;
+    padding: 40px 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--container-bg);
+    padding: 50px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Header & Profile Picture */
+header {
+    text-align: center;
+    border-bottom: 3px solid var(--accent-gray);
+    padding-bottom: 30px;
+    margin-bottom: 40px;
+}
+
+.profile-frame {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px;
+    border: 4px solid var(--accent-gray);
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--bg-page);
+}
+
+.profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.6rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.instruction {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--accent-gray);
+}
+
+/* Interactive Sections */
+section {
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 15px 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: var(--hover-gray);
+}
+
+section:hover {
+    border-color: var(--accent-gray);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+    font-size: 1.1rem;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    letter-spacing: 1.5px;
+}
+
+h2::after {
+    content: '▼';
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+section.active h2::after {
+    transform: rotate(180deg);
+}
+
+.content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, padding 0.3s ease;
+}
+
+section.active .content {
+    max-height: 1500px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-light);
+    margin-top: 15px;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.item {
+    margin-bottom: 20px;
+}
+
+.item-title {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.date {
+    font-weight: normal;
+    font-size: 0.9rem;
+}
+
+.sub-text {
+    font-style: italic;
+}
+
+/* Certificates Grid */
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.cert-item {
+    text-align: center;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid var(--border-light);
+    border-radius: 4px;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.cert-item:hover {
+    border-color: var(--accent-gray);
+    transform: scale(1.02);
+    cursor: zoom-in;
+}
+
+.img-placeholder {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    background-color: #f3f4f6;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cert-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- MODAL POP-UP STYLES --- */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Dark overlay */
+    justify-content: center;
+    align-items: center;
+    cursor: zoom-out;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 85%;
+    border: 4px solid white;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    animation: zoomEffect 0.3s ease;
+}
+
+@keyframes zoomEffect {
+    from {transform: scale(0.7); opacity: 0;}
+    to {transform: scale(1); opacity: 1;}
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* --- END MODAL STYLES --- */
+
+ul {
+    padding-left: 20px;
+}
+
+.contact-list, .skill-list {
+    list-style: none;
+    padding: 0;
+}
+
+/* Contact Section Specifics */
+.contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-list li {
+    margin-bottom: 12px;
+}
+
+/* Ensures the headers inside the contact grid match the theme */
+.content h3 {
+    font-size: 1rem;
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-black) !important;
+}
+
+/* Grid adjustment for Contact Info */
+@media (max-width: 600px) {
+    .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}
